@@ -1,0 +1,2 @@
+-e git+git@github.com:drigoni/TesiMagistrale.git@f5d759015d5ac9de313d5d54159b5a700c0f84a9#egg=Theano&subdirectory=grammarVAE/Theano-master
+
