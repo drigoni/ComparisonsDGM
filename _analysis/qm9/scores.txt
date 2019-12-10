@@ -1,0 +1,5 @@
+Validity score:   1.000000
+Natural product score:   0.886956
+Water octanol partition coefficient score:   0.273971
+Synthetic accessibility score:   0.215227
+Quantitative_estimation_druglikeness score:   0.458686
