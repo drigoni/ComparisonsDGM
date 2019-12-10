@@ -26,6 +26,7 @@ sh download_dataset.sh
 ```
 ### Model Training
 For training and molecule generation it is necessary to execute the model code in the appropriate folders.
+Remember to add the reading and saving functions of the moelcules to each new model accordingly to the other models.
 
 ### Model Test
 Once the molecules have been generated with a model and saved in the `molecules.txt` file, you can use the files in the `_analysis/models` folder to calculate the they're properties.
