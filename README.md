@@ -24,6 +24,8 @@ First you need to download the necessary files by running the following commands
 cd _dataset/QM9
 sh download_dataset.sh
 ```
+The test set is formed, for both data sets, by the first 5000 molecules. Since each model can use a different validation procedure, the choice of how to divide the remaining molecules into validations and training sets is left to the model in question, according to the code used by the author of the model.
+
 ### Model Training
 For training and molecule generation it is necessary to execute the model code in the appropriate folders.
 Remember to add the reading and saving functions of the moelcules to each new model accordingly to the other models.
