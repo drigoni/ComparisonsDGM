@@ -1,4 +1,4 @@
 # ComparisonsDGM
 Comparisons of Drug Generation Models
 
-Working in progress.
+Soon all the code used in the experiments will be added with a brief explanation
