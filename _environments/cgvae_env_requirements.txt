@@ -12,7 +12,7 @@ mkl-fft==1.0.6
 mkl-random==1.0.1
 olefile==0.46
 pandas==0.23.4
-Pillow==5.2.0
+Pillow==6.2.0
 planarity==0.4.1
 protobuf==3.6.1
 python-dateutil==2.7.3
