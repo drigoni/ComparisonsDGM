@@ -29,5 +29,5 @@ scipy==1.1.0
 six==1.11.0
 subprocess32==3.5.3
 tables==3.4.4
-tensorflow==0.12.1
+tensorflow==1.15.0
 -e git+git@github.com:drigoni/TesiMagistrale.git@f5d759015d5ac9de313d5d54159b5a700c0f84a9#egg=Theano&subdirectory=grammarVAE/Theano-master
