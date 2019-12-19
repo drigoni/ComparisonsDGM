@@ -1,5 +1,7 @@
 # ComparisonsDGM
-This repository contains the code used in "A Systematic Assessment of Deep Learning Models for Molecule Generation".
+This repository contains the code used to generate the results reported in the paper: _A Systematic Assessment of Deep Learning Models for Molecule Generation_.
+
+**NOTE: Soon all the remaining files of the various models and details on the hyperparameters used will be added**
 
 # Overview
 The folders whose names begin with the "\_" character contain all the code and useful files to test all the models.
