@@ -48,6 +48,7 @@ Example given `$path` the full path to the `ComparisonsDGM` folder, and `$my_fol
 conda activate analysis
 cd _analysis/models
 python model_results_bias.py $my_folder $path/gVAE/results/qm9_vae_str_L56_E100_val_decRes.txt qm9
+python model_results_bias.py $my_folder $path/gVAE/results/zinc_vae_str_L56_E100_val_decRes.txt zinc
 ```
 The results will be reported in folder `$path/_analysis/models/[bias, generation]/$my_folder/`.
 
