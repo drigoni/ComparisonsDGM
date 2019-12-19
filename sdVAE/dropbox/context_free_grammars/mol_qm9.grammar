@@ -1,0 +1,21 @@
+smiles -> chain
+atom -> bracket_atom | aliphatic_organic | aromatic_organic
+aliphatic_organic -> 'B' | 'C' | 'N' | 'O' | 'S' | 'P' | 'F' | 'I' | 'Cl' | 'Br'
+aromatic_organic -> 'c' | 'n' | 'o' | 's'
+bracket_atom -> '[' BAI ']'
+BAI -> isotope symbol BAC | symbol BAC | isotope symbol | symbol
+BAC -> chiral BAH | BAH | chiral
+BAH -> hcount charge | charge | hcount
+symbol -> aliphatic_organic | aromatic_organic
+isotope -> DIGIT | DIGIT DIGIT | DIGIT DIGIT DIGIT
+DIGIT -> '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8'
+chiral -> '@' | '@@'
+hcount -> 'H' | 'H' DIGIT
+charge -> '-' | '-' DIGIT | '+' | '+' DIGIT
+bond -> '-' | '=' | '#' | '/' | '\'
+ringbond -> DIGIT | bond DIGIT
+branched_atom -> atom | atom BB | atom RB | atom RB BB
+RB -> ringbond | ringbond RB
+BB -> branch | branch BB
+branch -> '(' chain ')' | '(' bond chain ')'
+chain -> branched_atom | branched_atom chain | branched_atom bond chain
