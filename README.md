@@ -11,7 +11,7 @@ In the `_environment` folder you can find, for each model, the `.yml` file for t
 Note that some versions of the dependencies can generate problems in the configuration of the environment. For this reason, although the `setup.bash` file is present for the configuration of each project, it is better to configure them manually.
 
 **NOTE**: some environments could be set only to use CPU. In this case if you want to use the GPU you need to change the `tensorflow` line in the environment file with `tensorflow-gpu`. 
-Depending on the model you could also need to change some line of code.
+Depending on the model, some lines of code must also be changed.
 
 # Structure
 The project is structured as follows: 
@@ -37,7 +37,9 @@ The test set is formed, for both data sets, by the first 5000 molecules. Since e
 
 ### Model Training
 For training and molecule generation it is necessary to execute the model code in the appropriate folders.
-Remember to add the reading and saving functions of the moelcules to each new model accordingly to the other models.
+For new models, remember to add the reading and saving functions of the moelcules accordingly to the implementation reported in the currently present models.
+Within each model folder there is a `README.md` file that link the original repository of the code.
+Refer to the original repository for the commands to be used to train the models.
 
 ### Model Test
 Once the molecules have been generated with a model and saved in the `molecules.txt` file, you can use the files in the `_analysis/models` folder to calculate the they're properties.
