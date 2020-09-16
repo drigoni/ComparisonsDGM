@@ -1,5 +1,6 @@
 from rdkit import Chem
 import os
+import numpy as np
 
 current_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -7,6 +8,9 @@ def read_qm9Original():
     filename = current_dir + '/../_dataset/QM9/gdb9.sdf'
 
     dataset = list(filter(lambda x: x is not None, Chem.SDMolSupplier(filename)))
+    
+    np.random.seed(1)
+    np.random.shuffle(dataset)
     return dataset
 
 
@@ -20,6 +24,9 @@ def read_qm9():
             continue
         smile = Chem.MolToSmiles(i)
         L.append(smile)
+
+    np.random.seed(1)
+    np.random.shuffle(L)
     return L
 
 # This is a subset of read_qm9() results. It doesn't include smiles with "." or "*" in it
@@ -30,6 +37,9 @@ def readStr_qm9():
         line = line.strip()
         L.append(line)
     f.close()
+
+    np.random.seed(1)
+    np.random.shuffle(L)
     return L
 
 def read_zinc():

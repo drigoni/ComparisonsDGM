@@ -5,7 +5,7 @@ import os
 import sys
 sys.path.append('%s/../_utils' % os.path.dirname(os.path.realpath(__file__)))
 from smile_metrics import MolecularMetrics
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 from utils import save_decoded_results, save_decoded_priors, load_decoded_results
 
 # constant
@@ -99,13 +99,9 @@ def main():
     grammar_model = molecule_vae.Qm9GrammarModel(GRAMMAR_WEIGHTS)
 
 
-    D = read_qm9()
-     #fix problem about molecule with '.' inside
-    XTE = []
-    for mol in D:
-        if "." not in mol:
-            XTE.append(mol)
+    XTE = readStr_qm9()
     XTE = XTE[0:5000]
+    # rember to comment and uncomment the line  in the #moelcule_vae file
     decoded_result = reconstruction(grammar_model, XTE)
     save_decoded_results(XTE, decoded_result, decoded_file)
     # decoded_priors = prior(grammar_model)

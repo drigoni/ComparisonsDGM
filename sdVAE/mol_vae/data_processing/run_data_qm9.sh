@@ -6,9 +6,9 @@ sk=0
 
 
 
-qm9_grammar_file=$root/sdvae/dropbox/context_free_grammars/mol_qm9.grammar
-qm9_smiles_file=$root/_dataset/QM9/gdb9.sdf
-qm9_save_dir=$root/sdvae/dropbox/data/qm9
+qm9_grammar_file=$root/sdVAE/dropbox/context_free_grammars/mol_qm9.grammar
+qm9_smiles_file=qm9
+qm9_save_dir=$root/sdVAE/dropbox/data/qm9
 
 $1/python make_dataset_parallel.py \
     -grammar_file $qm9_grammar_file \

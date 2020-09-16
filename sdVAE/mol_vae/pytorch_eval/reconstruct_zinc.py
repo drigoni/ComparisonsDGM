@@ -10,7 +10,7 @@ from tqdm import tqdm
 import os
 import sys
 sys.path.append('%s/../../../_utils' % os.path.dirname(os.path.realpath(__file__)))
-from read_dataset import read_zinc, read_qm9
+from read_dataset import read_zinc, readStr_qm9
 from utils import save_decoded_results
 
 
@@ -65,18 +65,12 @@ def main():
 
 
     # reading smiles test set
-    XTE = []
     if cmd_args.smiles_file == 'qm9':
-        D = read_qm9()
-        # fix problem about molecule with '.' inside
-        smiles = []
-        for mol in D:
-            if "." not in mol:
-                smiles.append(mol)
-        XTE = smiles[0:nb_smiles]
-    elif cmd_args.smiles_file == "zinc":
-        dataset = read_zinc()
-        XTE = dataset[0:nb_smiles]
+        smiles_list = readStr_qm9()
+    elif cmd_args.smiles_file == 'zinc':
+        smiles_list = read_zinc()
+
+    XTE = smiles_list[0:nb_smiles]
 
     decoded_result = reconstruct(model, XTE)
     decoded_result = np.array(decoded_result)

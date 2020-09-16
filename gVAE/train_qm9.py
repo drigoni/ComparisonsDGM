@@ -5,7 +5,7 @@ import numpy as np
 from models.model_zinc import MoleculeVAE
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau
 import h5py
-import zinc_grammar as G
+import qm9_grammar as G
 
 
 rules = G.gram.split('\n')
@@ -31,6 +31,7 @@ def get_arguments():
 
 def main():
     # 0. load dataset
+    print('Load dataset')
     h5f = h5py.File('data/qm9_grammar_dataset.h5', 'r')
     data = h5f['data'][:]
     h5f.close()

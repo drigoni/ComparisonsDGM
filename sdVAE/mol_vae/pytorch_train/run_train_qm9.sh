@@ -14,9 +14,9 @@ num_epochs=500
 eps_std=0.01
 prob_fix=0
 
-qm9_grammar_file=$root/sdvae/dropbox/context_free_grammars/mol_qm9.grammar
-qm9_data_dump=$root/sdvae/dropbox/data/qm9/gdb9-${sk}.h5
-qm9_save_dir=$root/sdvae/dropbox/results/graph_generation/qm9/vanilla-sk-${sk}-mol_${ae_type}/enc-${enc}-loss-${loss_type}-eps-${eps_std}-rnn-${rnn_type}-kl-${kl_coeff}
+qm9_grammar_file=$root/sdVAE/dropbox/context_free_grammars/mol_qm9.grammar
+qm9_data_dump=$root/sdVAE/dropbox/data/qm9/gdb9-${sk}.h5
+qm9_save_dir=$root/sdVAE/dropbox/results/graph_generation/qm9/vanilla-sk-${sk}-mol_${ae_type}/enc-${enc}-loss-${loss_type}-eps-${eps_std}-rnn-${rnn_type}-kl-${kl_coeff}
 
 
 if [ ! -e $qm9_save_dir ];

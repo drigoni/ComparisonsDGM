@@ -31,7 +31,7 @@ sys.path.append('%s/../cfg_parser' % os.path.dirname(os.path.realpath(__file__))
 import cfg_parser as parser
 
 sys.path.append('%s/../../../_utils' % os.path.dirname(os.path.realpath(__file__)))
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 from read_dataset import read_zinc
 
 
@@ -55,20 +55,15 @@ import cPickle as cp
 from tqdm import tqdm
 
 if __name__ == '__main__':
-    smiles_file = cmd_args.smiles_file
     save_dir = cmd_args.save_dir
-    fname = save_dir + (smiles_file.split('/')[-1]).split('.')[0] + '.cfg_dump'
+    fname = save_dir + (cmd_args.smiles_file.split('/')[-1]).split('.')[0] + '.cfg_dump'
     fout = open(fname, 'wb')
     grammar = parser.Grammar(cmd_args.grammar_file)
 
-    smiles = []
-    if cmd_args.smiles_file.endswith('.sdf'):
-        D = read_qm9()
-        # fix problem about molecule with '.' inside
-        for mol in D:
-            if "." not in mol:
-                smiles.append(mol)
-    elif cmd_args.smiles_file.endswith('.smi'):
+    smiles=[]
+    if cmd_args.smiles_file == 'qm9':
+        smiles = readStr_qm9()
+    elif cmd_args.smiles_file == 'zinc':
         smiles = read_zinc()
     
     for i in tqdm(range(len(smiles))):

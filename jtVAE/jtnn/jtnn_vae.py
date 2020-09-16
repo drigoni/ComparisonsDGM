@@ -286,7 +286,6 @@ class JTNNVAE(nn.Module):
         cand_vecs = self.G_mean(cand_vecs)
         mol_vec = mol_vec.squeeze()
         scores = torch.mv(cand_vecs, mol_vec) * 20
-
         if prob_decode:
             probs = nn.Softmax()(scores.view(1,-1)).squeeze() + 1e-5 #prevent prob = 0
             cand_idx = torch.multinomial(probs, probs.numel())

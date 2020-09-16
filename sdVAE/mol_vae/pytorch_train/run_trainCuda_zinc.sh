@@ -14,9 +14,9 @@ num_epochs=500
 eps_std=0.01
 prob_fix=0
 
-zinc_grammar_file=$root/sdvae/dropbox/context_free_grammars/mol_zinc.grammar
-zinc_data_dump=$root/sdvae/dropbox/data/zinc/250k_rndm_zinc_drugs_clean-${sk}.h5
-zinc_save_dir=$root/sdvae/dropbox/results/graph_generation/zinc_cuda/vanilla-sk-${sk}-mol_${ae_type}/enc-${enc}-loss-${loss_type}-eps-${eps_std}-rnn-${rnn_type}-kl-${kl_coeff}
+zinc_grammar_file=$root/sdVAE/dropbox/context_free_grammars/mol_zinc.grammar
+zinc_data_dump=$root/sdVAE/dropbox/data/zinc/zinc-${sk}.h5
+zinc_save_dir=$root/sdVAE/dropbox/results/graph_generation/zinc_cuda/vanilla-sk-${sk}-mol_${ae_type}/enc-${enc}-loss-${loss_type}-eps-${eps_std}-rnn-${rnn_type}-kl-${kl_coeff}
 
 
 if [ ! -e $zinc_save_dir ];

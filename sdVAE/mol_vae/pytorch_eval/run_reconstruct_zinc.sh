@@ -25,7 +25,7 @@ qm9_save_dir=$root/sdVAE/dropbox/results/qm9
 
 echo "save_dir for zinc use is $zinc_save_dir"
 
-export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}  # only set when CUDA_VISIBLE_DEVICES is not set.
+export CUDA_VISIBLE_DEVICES=0  # only set when CUDA_VISIBLE_DEVICES is not set.
 $1/python reconstruct_zinc.py \
     -grammar_file $zinc_grammar_file \
     -old 0 \
@@ -46,24 +46,24 @@ $1/python reconstruct_zinc.py \
     -mode cpu \
     $@ ;
 
-echo "save_dir for qm9 use is $qm9_save_dir"
-export CUDA_VISIBLE_DEVICES=${CUDA_VISIBLE_DEVICES:-0}  # only set when CUDA_VISIBLE_DEVICES is not set.
-$1/python reconstruct_zinc.py \
-    -grammar_file $qm9_grammar_file \
-    -old 0 \
-    -skip_deter $sk \
-    -bondcompact 0 \
-    -batch_size $bsize \
-    -encoder_type $enc \
-    -save_dir $qm9_save_dir \
-    -ae_type $ae_type \
-    -learning_rate $lr \
-    -rnn_type $rnn_type \
-    -num_epochs $num_epochs \
-    -eps_std $eps_std \
-    -loss_type $loss_type \
-    -kl_coeff $kl_coeff \
-    -smiles_file "qm9" \
-    -saved_model $qm9_save_dir/epoch-best.model \
-    -mode cpu \
-    $@ ;
+#echo "save_dir for qm9 use is $qm9_save_dir"
+#export CUDA_VISIBLE_DEVICES=0  # only set when CUDA_VISIBLE_DEVICES is not set.
+#$1/python reconstruct_zinc.py \
+#    -grammar_file $qm9_grammar_file \
+#    -old 0 \
+#    -skip_deter $sk \
+#    -bondcompact 0 \
+#    -batch_size $bsize \
+#    -encoder_type $enc \
+#    -save_dir $qm9_save_dir \
+#    -ae_type $ae_type \
+#    -learning_rate $lr \
+#    -rnn_type $rnn_type \
+#    -num_epochs $num_epochs \
+#    -eps_std $eps_std \
+#    -loss_type $loss_type \
+#    -kl_coeff $kl_coeff \
+#    -smiles_file "qm9" \
+#    -saved_model $qm9_save_dir/epoch-best.model \
+#    -mode cpu \
+#    $@ ;

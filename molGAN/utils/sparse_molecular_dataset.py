@@ -41,6 +41,10 @@ class SparseMolecularDataset():
         elif filename.endswith('.smi'):
             self.data = [Chem.MolFromSmiles(line) for line in open(filename, 'r').readlines()]
 
+        if 'qm9' in str.lower(filename):
+            np.random.seed(1)
+            np.random.shuffle(self.data)
+
         self.data = list(map(Chem.AddHs, self.data)) if add_h else self.data
         self.data = list(filter(filters, self.data))
         self.data = self.data[:size]

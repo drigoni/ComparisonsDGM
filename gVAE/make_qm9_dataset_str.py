@@ -3,18 +3,13 @@ from models.utils import many_one_hot
 import h5py
 import sys, os
 sys.path.append('%s/../_utils' % os.path.dirname(os.path.realpath(__file__)))
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 
 MAX_LEN = 120
 chars = ['C', '(', ')', 'c', '1', '2', 'o', '=', 'O', 'N', '3', 'F', '[', '@', 'H', ']', 'n', '-', '#', 'S', 'l', '+', 's', 'B', 'r', '/', '4', '\\', '5', '6', '7', 'I', 'P', '8', ' ']
 DIM = len(chars)
 
-D = read_qm9()
-#fix problem about molecule with '.' inside
-L = []
-for mol in D:
-    if "." not in mol:
-        L.append(mol)
+L = readStr_qm9()
 
 count = 0
 OH = np.zeros((len(L), MAX_LEN, DIM))

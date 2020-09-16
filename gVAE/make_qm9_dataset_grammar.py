@@ -6,16 +6,11 @@ import h5py
 import molecule_vae
 import sys, os
 sys.path.append('%s/../_utils' % os.path.dirname(os.path.realpath(__file__)))
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 
 MAX_LEN=277
 
-D = read_qm9()
-#fix problem about molecule with '.' inside
-L = []
-for mol in D:
-    if "." not in mol:
-        L.append(mol)
+L = readStr_qm9()
 
 
 

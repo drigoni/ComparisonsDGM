@@ -24,7 +24,7 @@ sys.path.append('%s/../cfg_parser' % os.path.dirname(os.path.realpath(__file__))
 import cfg_parser as parser
 
 sys.path.append('%s/../../../_utils' % os.path.dirname(os.path.realpath(__file__)))
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 from read_dataset import read_zinc
 
 from joblib import Parallel, delayed
@@ -62,7 +62,8 @@ def run_job(L):
         all_onehot[start: start + chunk_size, :, :] = b_pair[0]
         all_masks[start: start + chunk_size, :, :] = b_pair[1]
 
-    f_smiles = '.'.join(cmd_args.smiles_file.split('/')[-1].split('.')[0:-1])
+    #f_smiles = '.'.join(cmd_args.smiles_file.split('/')[-1].split('.')[0:-1])
+    f_smiles = cmd_args.smiles_file
     out_file = '%s/%s-%d.h5' % (cmd_args.save_dir, f_smiles, cmd_args.skip_deter)
     h5f = h5py.File(out_file, 'w')
     h5f.create_dataset('x', data=all_onehot)
@@ -73,16 +74,13 @@ if __name__ == '__main__':
 
     smiles_list = []
 
-    if cmd_args.smiles_file.endswith('.sdf'):
-        D = read_qm9()
-        # fix problem about molecule with '.' inside
-        for mol in D:
-            if "." not in mol:
-                smiles_list.append(mol)
-    elif cmd_args.smiles_file.endswith('.smi'):
+    if cmd_args.smiles_file == 'qm9':
+        smiles_list = readStr_qm9()
+    elif cmd_args.smiles_file == 'zinc':
         smiles_list = read_zinc()
 
-    run_job(smiles_list)
+    train_dataset = smiles_list[5000:]
+    run_job(train_dataset)
     
 
 

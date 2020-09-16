@@ -5,7 +5,7 @@ import os
 import sys
 sys.path.append('%s/../_utils' % os.path.dirname(os.path.realpath(__file__)))
 from smile_metrics import MolecularMetrics
-from read_dataset import read_qm9
+from read_dataset import readStr_qm9
 from utils import save_decoded_results, save_decoded_priors, load_decoded_results
 
 # constant
@@ -22,11 +22,12 @@ def reconstruction(model, XTE):
 
     # for every group of smile
     for start_chunk in range(0, len(XTE), CHUNK_SIZE):
+        print('Processeing: %d ' % (start_chunk))
         smiles = XTE[start_chunk:start_chunk + CHUNK_SIZE]
         chunk_result = [[] for _ in range(len(smiles))]
         # for every encoding times
         for nEncode in range(ENCODE_TIMES):
-            print('Current encode %d/%d ' % ( nEncode + 1, ENCODE_TIMES))
+            # print('Current encode %d/%d ' % ( nEncode + 1, ENCODE_TIMES))
             # z: encoded latent points
             # NOTE: this operation returns the mean of the encoding distribution
             # if you would like it to sample from that distribution instead
@@ -101,13 +102,9 @@ def main():
     generation_file = GRAMMAR_WEIGHTS.split(".")[0] + "_generationRes.txt"
     grammar_model = molecule_vae.Qm9CharacterModel(GRAMMAR_WEIGHTS)
 
-    D = read_qm9()
-     #fix problem about molecule with '.' inside
-    XTE = []
-    for mol in D:
-        if "." not in mol:
-            XTE.append(mol)
+    XTE = readStr_qm9()
     XTE = XTE[0:5000]
+    # rember to comment and uncomment the line  in the #moelcule_vae file
     decoded_result = reconstruction(grammar_model, XTE)
     save_decoded_results(XTE, decoded_result, decoded_file)
     # decoded_priors = prior(grammar_model)

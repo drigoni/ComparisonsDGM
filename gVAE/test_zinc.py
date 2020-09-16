@@ -103,12 +103,13 @@ def main():
 
     XTE = read_zinc()
     XTE = XTE[0:5000]
+    # rember to comment and uncomment the line  in the #moelcule_vae file
     decoded_result = reconstruction(grammar_model, XTE)
     save_decoded_results(XTE, decoded_result, decoded_file)
     # decoded_priors = prior(grammar_model)
     # save_decoded_priors(decoded_priors, priors_file)
-    # decoded_generation = generation(grammar_model)
-    # save_decoded_priors(decoded_generation, generation_file)
+    decoded_generation = generation(grammar_model)
+    save_decoded_priors(decoded_generation, generation_file)
 
 
 

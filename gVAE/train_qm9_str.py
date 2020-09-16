@@ -27,6 +27,7 @@ def get_arguments():
 
 def main():
     # 0. load dataset
+    print('Load dataset')
     h5f = h5py.File('data/qm9_str_dataset.h5', 'r')
     data = h5f['data'][:]
     h5f.close()
