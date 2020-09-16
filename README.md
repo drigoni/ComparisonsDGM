@@ -1,5 +1,14 @@
 # ComparisonsDGM
-This repository contains the code used to generate the results reported in the paper: _A Systematic Assessment of Deep Learning Models for Molecule Generation_.
+This repository contains the code used to generate the results reported in the paper: [A Systematic Assessment of Deep Learning Models for Molecule Generation](https://arxiv.org/abs/2008.09168).
+
+```
+@article{rigoni2020systematic,
+  title={A Systematic Assessment of Deep Learning Models for Molecule Generation},
+  author={Rigoni, Davide and Navarin, Nicol{\`o} and Sperduti, Alessandro},
+  journal={arXiv preprint arXiv:2008.09168},
+  year={2020}
+}
+```
 
 # Overview
 The folders whose names begin with the "\_" character contain all the code and useful files to test all the models.
