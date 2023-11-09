@@ -50,3 +50,12 @@ def read_zinc():
         L.append(line)
     f.close()
     return L
+
+def read_zinc1M():
+    f = open(current_dir + '/../_dataset/ZINC1M/zinc1M.smi', 'r')
+    L = []
+    for line in f:
+        line = line.strip()
+        L.append(line)
+    f.close()
+    return L

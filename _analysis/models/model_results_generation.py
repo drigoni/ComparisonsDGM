@@ -5,7 +5,7 @@ from rdkit import Chem
 sys.path.append('../utils')
 sys.path.append('../../_utils')
 from plot_utils import *
-from read_dataset import readStr_qm9, read_zinc
+from read_dataset import readStr_qm9, read_zinc, read_zinc1M
 from smile_metrics import MolecularMetrics as mm
 from utils import save_scores_priors, load_decoded_priors, calc_perc
 
@@ -18,8 +18,12 @@ dataset = sys.argv[3]
 
 if dataset == "zinc":
     trainingSet = read_zinc()
-else:
+elif dataset == "zinc1M":
+    trainingSet = read_zinc1M()
+elif dataset == "qm9":
     trainingSet = readStr_qm9()
+else:
+    print("Error: dataset not recognized.")
 trainingSet = trainingSet[5000:]
 
 

@@ -19,8 +19,12 @@ dataset = sys.argv[3]
 
 if dataset == "zinc":
     trainingSet = read_zinc()
-else:
+elif dataset == "zinc1M":
+    trainingSet = read_zinc1M()
+elif dataset == "qm9":
     trainingSet = readStr_qm9()
+else:
+    print("Error: dataset not recognized.")
 trainingSet = trainingSet[5000:]
 
 
