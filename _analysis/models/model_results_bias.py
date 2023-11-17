@@ -5,7 +5,7 @@ from rdkit import Chem
 sys.path.append('../utils')
 sys.path.append('../../_utils')
 from plot_utils import *
-from read_dataset import readStr_qm9, read_zinc
+from read_dataset import readStr_qm9, read_zinc, read_zinc1M
 from smile_metrics import MolecularMetrics as mm
 from utils import save_scores_bias, load_decoded_results, calc_perc
 
